@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/tmp
 
     environment:
       # Customize the JVM maximum heap limit
@@ -35,7 +35,9 @@ jobs:
           name: Determine which projects have changed and trigger the builds
           command: |
             # Identify modified directories
-            LAST_SUCCESSFUL_BUILD_URL="https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/tree/$CIRCLE_BRANCH?filter=completed&limit=1"
+            LAST_SUCCESSFUL_BUILD_URL="https://circleci.com/api/v1.1/project/github/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_
+            
+            NAME/tree/$CIRCLE_BRANCH?filter=completed&limit=1"
             LAST_SUCCESSFUL_COMMIT=`curl -Ss -u "$CIRCLE_TOKEN:" $LAST_SUCCESSFUL_BUILD_URL | jq -r '.[0]["vcs_revision"]'`
 
             #first commit in a branch
@@ -95,7 +97,7 @@ jobs:
 
 
 multi1:
-  working_directory: /go/src/github.com/tufin/circleci-monorepo
+  working_directory: /tmp
   environment:
     PROJECT_NAME: multi1
     TEST_RESULTS: /tmp/test-results
@@ -115,7 +117,7 @@ multi1:
     - store_test_results:
         path: /tmp/test-results
 multi2:
-  working_directory: /go/src/github.com/tufin/circleci-monorepo
+  working_directory: /tmp
   environment:
     PROJECT_NAME: multi2
     TEST_RESULTS: /tmp/test-results
