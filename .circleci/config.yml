@@ -50,7 +50,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - packages/<< parameters.package_name >>
+            - ./<< parameters.package_name >>
 
   deploy:
     parameters:
