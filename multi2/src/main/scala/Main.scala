@@ -7,5 +7,6 @@ object Main extends App {
 
   import pureconfig._
 
-  implicit def hint[T]: ProductHint[T] = ProductHint[T](ConfigFieldMapping(CamelCase, KebabCase))
+  implicit def hint[T]: ProductHint[T] =
+    ProductHint[T](ConfigFieldMapping(CamelCase, KebabCase))
 }
