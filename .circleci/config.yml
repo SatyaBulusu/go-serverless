@@ -112,11 +112,18 @@ workflows:
           name: common-build
           package_name: common
       - build:
+          name: multi1-build
           package_name: multi1
       - build:
+          name: multi2-build
           package_name: multi2          
       - deploy:
-          name: common-deploy
-          package_name: common
+          name: multi1-deploy
+          package_name: multi1
           requires:
-            - common-build
+            - multi1-build
+      - deploy:
+          name: multi2-deploy
+          package_name: multi2
+          requires:
+            - multi2-build            
