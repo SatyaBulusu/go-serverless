@@ -20,7 +20,7 @@ parameters:
 executors:
   node:
     docker:
-      - image: circleci/node
+      - image: circleci/openjdk:8-jdk
 
 jobs:
   trigger-workflows:
