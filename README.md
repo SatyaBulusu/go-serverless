@@ -20,3 +20,6 @@ The goal of this example is to provide a multi-project build using `sbt` providi
         * build.properties
         * plugins.sbt
     * build.sbt
+
+Compile projects: sbt multi1/compile , sbt multi2/compile, sbt common/compile
+Test: sbt mult1/test, sbt multi2/test, sbt common/test
