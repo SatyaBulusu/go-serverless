@@ -7,5 +7,4 @@ object Main extends App {
 
   println("multi1 can use monocle dependency")
 
-  val idLens = GenLens[Entity](_.id)
 }
