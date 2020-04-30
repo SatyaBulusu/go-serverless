@@ -44,13 +44,9 @@ jobs:
           path: ~/project
       # This step is added only to show that we are in the package directory
       - run:
-          name: Content
-          command: |
-            cat README.md
-            echo "<< parameters.package_name >>"
-      - run:
           name: Build
-          command: echo "Build << parameters.package_name >> ..."
+          command: |
+            echo "Build << parameters.package_name >> ..."
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -68,9 +64,6 @@ jobs:
       - attach_workspace:
           at: ~/project
       # This step is added to show that files are available from the build job.
-      - run:
-          name: Content to deploy
-          command: ls && cat build.txt
       - deploy:
           name: Deploy
           command: echo "Deploying << parameters.package_name >> ..."
