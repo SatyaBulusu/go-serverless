@@ -111,6 +111,10 @@ workflows:
       - build:
           name: common-build
           package_name: common
+      - build:
+          package_name: multi1
+      - build:
+          package_name: multi2          
       - deploy:
           name: common-deploy
           package_name: common
