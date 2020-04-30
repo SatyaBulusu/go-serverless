@@ -5,6 +5,6 @@ object Main extends App {
 
   val entity = Entity("id", NestedEntity("value"))
 
-  println("multi1 can use monocle dependency")
+  println("multi1 can use monocle dependency ")
 
 }
