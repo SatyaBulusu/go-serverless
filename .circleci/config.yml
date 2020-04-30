@@ -47,7 +47,6 @@ jobs:
           name: Build
           command: |
             echo "Build << parameters.package_name >> ..."
-            sbt compile
       - persist_to_workspace:
           root: ~/project
           paths:
